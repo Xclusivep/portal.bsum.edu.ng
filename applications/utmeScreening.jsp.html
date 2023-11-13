@@ -1,0 +1,213 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+ 
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Benue State University, Makurdi</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">    
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/portal.css">
+        <link rel="stylesheet" type="text/css" href="css/menu.css">        
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            // Code that uses other library's $ can follow here.
+        </script>
+        <script type="text/javascript" src="js/time_script.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $("#listTable tr:nth-child(even)").addClass("striped");
+            });
+        </script>
+        <script>
+            function printDiv()
+            {
+                var divToPrint = document.getElementById('payrefTable');
+                newWin = window.open("");
+                newWin.document.write(divToPrint.outerHTML);
+                newWin.print();
+                newWin.close();
+            }
+
+
+
+            function switchContent(obj) {
+                var el = document.getElementById(obj);
+                if (el.style.display !== "none") {
+                    el.style.display = 'none';
+                }
+                else {
+                    el.style.display = '';
+                }
+            }
+        </script>
+
+        <script>
+            var req;
+            var isIE;
+            var prog;
+            var paycat;
+            var semesters;
+            var loadpaycat;
+
+            function init() {
+
+
+            }
+            function initRequest() {
+                if (window.XMLHttpRequest) {
+                    if (navigator.userAgent.indexOf('MSIE') != -1) {
+                        isIE = true;
+                    }
+                    return new XMLHttpRequest();
+                } else if (window.ActiveXObject) {
+                    isIE = true;
+                    return new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            }
+            function printFormatText(txt)
+            {
+                if (txt !== "") {
+                    var url = "Ajaxservlet?action=printPayRef&id=" + escape(txt);
+                    req = initRequest();
+                    req.open("GET", url, true);
+                    req.onreadystatechange = printPayref;
+                    req.send(null);
+
+                }
+            }
+            function printPayref() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        var txt1 = req.responseText;
+                        newWin = window.open("");
+                        newWin.document.write(txt1);
+                        newWin.print();
+                        newWin.close();
+                    }
+                }
+            }
+
+
+
+        </script>
+    </head>
+
+    
+
+    <body>
+
+        <div id="topdiv">
+            
+
+<div id="barner">
+    <div id="logo"></div>
+    <div id="barnertxt">
+        <div id="search"></div>
+        <div id="barnername"><barnername>Benue State University, Makurdi</barnername><br/><br/>
+            <barnersub>University Portal</barnersub>
+        </div>
+        <div id="barnerempty"></div>
+    </div>
+   
+</div>
+            
+            
+
+<nav id="menu-wrap"><div id="menu-trigger">Menu</div>    
+    <ul id="menu">
+        <li><a href="https://www.bsum.edu.ng">Back to website</a></li>
+        <li><a href="utmeScreening.jsp.html">UTME Screening</a></li>
+        <li><a href="utmeScreening.jsp.html#">Instructions</a></li>
+        <li><a href="utmeScreening.jsp.html#">&nbsp;</a></li>
+    </ul>
+</nav>
+
+        </div>
+        <div id="canvas">
+            <div id="content">                
+                <div id="cleardivsmall"></div>  
+                <div class="contentTitle">2022/2023 UTME/DE Screening Exercise</div>
+                <div id="cleardiv"></div> 
+                <div class="contentwrapper">
+                    <div class="mainsection">
+                        <div id="cleardivsmall"></div>  
+                        <div class="mainsectiondoby">
+                            <form action="utmeScreening.jsp.html" method="post" name="payment" class="form_css">
+                                <h1><span>Please enter UTME Registration No</span>
+                                </h1>
+                                <table width="100%" border="0" cellpadding="2" align="center">
+
+
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>ENTER UTME/DE REGISTRATION NO.: </td>
+                                        <td>
+                                            <input name="regno" type="text" id="regno" required/>                                    </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="3" align="center">      <input name="Submit" type="submit" class="button" value="Verify">    </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" align="center">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" align="center" valign="top">
+
+                                                            </td>
+                                    </tr>
+                                </table>
+
+                            </form>
+
+
+                        </div>
+
+                    </div>
+                    
+
+<div class="latestnews">
+    
+</div>
+
+
+
+
+                </div>	
+                <div id="cleardiv"></div>
+            </div>
+            <div id="cleardivsmall"></div>
+            <div id="bottomdiv">
+
+© 2020 Benue State University
+</div>
+        </canvas>
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/mainjs.js"></script>
+</body>
+</html>

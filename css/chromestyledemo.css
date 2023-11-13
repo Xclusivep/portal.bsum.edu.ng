@@ -1,0 +1,73 @@
+.chromestyle-red UL {
+	BACKGROUND: #B20000 repeat-x center center; TEXT-ALIGN: left;
+            color: #ffffff;
+}
+.chromestyle-red UL LI A {
+	BORDER-RIGHT:  #B20000 1px solid;
+        color: #ffffff;
+}
+.chromestyle-red UL LI A:hover {
+	BACKGROUND: #B20000 repeat-x center center;
+        color: #ffffff;
+}
+.dropmenudiv-red {
+	BORDER-RIGHT: #e8bebe 1px solid; BORDER-TOP: #e8bebe 1px solid; BORDER-LEFT: #e8bebe 1px solid; BORDER-BOTTOM: #e8bebe 1px solid;
+        color: #ffffff;
+        BACKGROUND: #2E2C8F;
+}
+.dropmenudiv-red A {
+	BORDER-RIGHT: #e8bebe 1px solid; BORDER-TOP: #e8bebe 1px solid; BORDER-LEFT: #e8bebe 1px solid; BORDER-BOTTOM: #e8bebe 1px solid;
+        color: #ffffff;
+}
+.dropmenudiv-red A:hover {
+	BACKGROUND-COLOR: #B20000;
+        color: #ffffff;
+}
+.chromestyle-green UL {
+	BACKGROUND: #B20000 repeat-x center center; TEXT-ALIGN: right;
+        color: #ffffff;
+}
+.chromestyle-green UL LI A {
+	BORDER-RIGHT: #FFDBDC 1px solid;
+        color: #ffffff;
+}
+.chromestyle-green UL LI A:hover {
+	BACKGROUND: #2E2C8F repeat-x center center;
+        color: #ffffff;
+}
+.dropmenudiv-green {
+	BORDER-RIGHT: #FFDBDC 1px solid; BORDER-TOP: #FFDBDC 1px solid; BORDER-LEFT: #FFDBDC 1px solid; BORDER-BOTTOM: #FFDBDC 1px solid;
+        color: #ffffff;
+}
+.dropmenudiv-green A {
+	BORDER-RIGHT: #FFDBDC 1px solid; BORDER-TOP: #FFDBDC 1px solid; BORDER-LEFT: #FFDBDC 1px solid; BORDER-BOTTOM: #FFDBDC 1px solid;
+        color: #ffffff;
+}
+.dropmenudiv-green A:hover {
+	BACKGROUND-COLOR: #eafadc;
+        color: #ffffff;
+}
+.chromestyle-blue UL {
+	BACKGROUND: #B20000 repeat-x center center; TEXT-ALIGN: center;
+        color: #ffffff;
+}
+.chromestyle-blue UL LI A {
+	BORDER-RIGHT: #b5e2fe 1px solid;
+        color: #ffffff;
+}
+.chromestyle-blue UL LI A:hover {
+	BACKGROUND: #2E2C8F repeat-x center center;
+        color: #ffffff;
+}
+.dropmenudiv-blue {
+	BORDER-RIGHT: #b5e2fe 1px solid; BORDER-TOP: #b5e2fe 1px solid; BORDER-LEFT: #b5e2fe 1px solid; BORDER-BOTTOM: #b5e2fe 1px solid;
+        color: #ffffff;
+}
+.dropmenudiv-bluea {
+	BORDER-BOTTOM: #b5e2fe 1px solid;
+        color: #ffffff;
+}
+.dropmenudiv-blue A:hover {
+	BACKGROUND-COLOR: #ebf7ff;
+        color: #ffffff;
+}

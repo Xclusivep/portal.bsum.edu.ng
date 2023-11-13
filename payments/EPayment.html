@@ -1,0 +1,390 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+ 
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Benue State University, Makurdi</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">    
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/portal.css">
+        <link rel="stylesheet" type="text/css" href="css/menu.css">        
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            // Code that uses other library's $ can follow here.
+        </script>
+        <script type="text/javascript" src="js/time_script.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $("#listTable tr:nth-child(even)").addClass("striped");
+            });
+        </script>
+        <script>
+            function printDiv()
+            {
+                var divToPrint = document.getElementById('payrefTable');
+                newWin = window.open("");
+                newWin.document.write(divToPrint.outerHTML);
+                newWin.print();
+                newWin.close();
+            }
+
+
+
+            function switchContent(obj) {
+                var el = document.getElementById(obj);
+                if (el.style.display !== "none") {
+                    el.style.display = 'none';
+                } else {
+                    el.style.display = '';
+                }
+            }
+        </script>
+
+        <script>
+            var req;
+            var isIE;
+            var prog;
+            var paycat;
+            var semesters;
+            var loadpaycat;
+
+            function init() {
+
+
+            }
+            function initRequest() {
+                if (window.XMLHttpRequest) {
+                    if (navigator.userAgent.indexOf('MSIE') != -1) {
+                        isIE = true;
+                    }
+                    return new XMLHttpRequest();
+                } else if (window.ActiveXObject) {
+                    isIE = true;
+                    return new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            }
+            function moveToPayOption(payref) {
+                var ref = escape(payref);
+                window.open('paymentChannels.jsp?payref=' + ref);
+            }
+            function printFormatText(txt)
+            {
+                if (txt !== "") {
+                    var url = "Ajaxservlet?action=printPayRef&id=" + escape(txt);
+                    req = initRequest();
+                    req.open("GET", url, true);
+                    req.onreadystatechange = printPayref;
+                    req.send(null);
+
+                }
+            }
+            function printPayref() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        var txt1 = req.responseText;
+                        newWin = window.open("");
+                        newWin.document.write(txt1);
+                        newWin.print();
+                        newWin.close();
+                    }
+                }
+            }
+
+            function loadPaymentCategory() {
+                var sel = document.getElementById("prog");
+                prog = sel.options[sel.selectedIndex].value;
+
+                loadpaycat = document.getElementById("loadpaycat");
+                if (prog !== "") {
+                    var url = "Ajaxservlet?action=loadpaycat&id=" + escape(prog);
+                    req = initRequest();
+                    req.open("GET", url, true);
+                    req.onreadystatechange = callLoadpaycat;
+                    req.send(null);
+                }
+            }
+            function loadSemesters() {
+                //init();
+                var sel2 = document.getElementById("paycat");
+                paycat = sel2.options[sel2.selectedIndex].value;
+
+                semesters = document.getElementById("semesters");
+                if (paycat !== "") {
+                    var url = "Ajaxservlet?action=loadsemesters&id=" + escape(paycat);
+                    req = initRequest();
+                    req.open("GET", url, true);
+                    req.onreadystatechange = callLoadsemesters;
+                    req.send(null);
+                }
+            }
+
+            function callLoadpaycat() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        var txt1 = req.responseText;
+                        loadPaycatNow(txt1);
+                    }
+                }
+            }
+
+            function callLoadsemesters() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        var txt1 = req.responseText;
+                        //var txt2=req.responseText.split("***")[1];
+                        //appendName(req.responseText);
+                        loadSemesterNow(txt1);
+                    }
+                }
+            }
+
+
+
+            function loadPaycatNow(txt1) {
+                if (isIE) {
+                    loadpaycat.style.display = 'block';
+                } else {
+                    loadpaycat.style.display = 'div';
+                }
+                document.getElementById("loadpaycat").innerHTML = txt1;
+            }
+
+            function loadSemesterNow(txt1) {
+                if (isIE) {
+                    semesters.style.display = 'block';
+                } else {
+                    semesters.style.display = 'div';
+                }
+                document.getElementById("semesters").innerHTML = txt1;
+            }
+        </script>
+    </head>
+
+    
+
+    <body>
+
+        <div id="topdiv">
+            
+
+<div id="barner">
+    <div id="logo"></div>
+    <div id="barnertxt">
+        <div id="search"></div>
+        <div id="barnername"><barnername>Benue State University, Makurdi</barnername><br/><br/>
+            <barnersub>University Portal</barnersub>
+        </div>
+        <div id="barnerempty"></div>
+    </div>
+   
+</div>
+            
+            
+
+<nav id="menu-wrap"><div id="menu-trigger">Menu</div>    
+    <ul id="menu">
+        <li><a href="https://www.bsum.edu.ng">Back to website</a></li>
+        <li><a href="EPayments.html">Verify Payment Reference</a></li>
+        <li><a href="EPaymentRef.html">View Payment References</a></li>
+        <li><a href="HangingPayments.html" >Hanging Payments?</a></li>
+        <li><a href="EPayment.html">Pay Online</a></li>
+        <li><a href="FAQs.html">FAQs</a></li>
+        <li><a href="EPayment.html">&nbsp;</a></li>
+    </ul>
+</nav>
+
+        </div>
+        <div id="canvas">
+            <div id="content">                
+                <div id="cleardivsmall"></div>  
+                <div class="contentTitle">e-Payment Platform</div>
+                <div id="cleardiv"></div> 
+                <div class="contentwrapper">
+                    <div class="mainsection">
+                        <div class="pagecomment">Please complete the form below and click on the button to Generate Payment Reference.<br/><br/>
+                            Note: To pay school fees for session, generate the payment reference twice for First and Second semester separately
+                        </div>
+                        <div id="cleardivsmall"></div>  
+                        <div class="mainsectiondoby">
+                            <form action="EPayment.html" method="post" name="payment" class="form_css">
+                                <h1><span>Please fill the form below</span>
+                                </h1>
+                                <table width="100%" border="0" cellpadding="2" align="center">
+
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>PROGRAMME</td>
+                                        <td><select name="prog" id="prog" onchange="loadPaymentCategory();">
+                                                <option>--- Select Programme ---</option>
+                                                
+                                                <option value="DEGREE"> DEGREE</option>
+                                                
+                                                <option value="DIPLOMA"> DIPLOMA</option>
+                                                
+                                                <option value="POST GRADUATE"> POST GRADUATE</option>
+                                                
+                                                <option value="SANDWICH"> SANDWICH</option>
+                                                
+                                                <option value="PRELIMINARY FRENCH"> PRELIMINARY FRENCH</option>
+                                                
+                                                <option value="PRELIMINARY SCIENCE"> PRELIMINARY SCIENCE</option>
+                                                
+                                                <option value="PRELIMINARY VOC TECH"> PRELIMINARY VOC TECH</option>
+                                                
+                                                <option value="REMEDIAL"> REMEDIAL</option>
+                                                
+                                                <option value="CEFTER"> CEFTER</option>
+                                                
+                                                <option value="PART-TIME"> PART-TIME</option>
+                                                
+                                                <option value="DEGREE (STREAM B)"> DEGREE (STREAM B)</option>
+                                                
+                                            </select></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="1">&nbsp;</td>
+                                        <td width="245">PAYMENT CATEGORY: </td>
+                                        <td width="317">
+                                            <div id="loadpaycat">
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>REGISTRATION/APPLICATION NO.: </td>
+                                        <td>
+                                            <input name="regno" type="text" id="regno" required/>                                    </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>SESSION:</td>
+                                        <td>
+                                            <select name="sess" id="sess">
+                                                
+                                                <option value="2014/2015" selected>2014/2015</option>
+                                                
+                                                <option value="2023/2024">2023/2024</option>
+                                                
+                                                <option value="2022/2023">2022/2023</option>
+                                                
+                                                <option value="2021/2022">2021/2022</option>
+                                                
+                                                <option value="2020/2021">2020/2021</option>
+                                                
+                                                <option value="2019/2020">2019/2020</option>
+                                                
+                                                <option value="2018/2019">2018/2019</option>
+                                                
+                                                <option value="2017/2018">2017/2018</option>
+                                                
+                                                <option value="2016/2017">2016/2017</option>
+                                                
+                                                <option value="2015/2016">2015/2016</option>
+                                                
+                                                <option value="2014/2015">2014/2015</option>
+                                                
+                                                <option value="2013/2014">2013/2014</option>
+                                                
+                                                <option value="2012/2013">2012/2013</option>
+                                                
+                                                <option value="2011/2012">2011/2012</option>
+                                                
+                                                <option value="2010/2011">2010/2011</option>
+                                                
+                                                <option value="2009/2010">2009/2010</option>
+                                                
+                                                <option value="2008/2009">2008/2009</option>
+                                                
+                                                <option value="2007/2008">2007/2008</option>
+                                                
+                                                <option value="2006/2007">2006/2007</option>
+                                                
+                                                <option value="2005/2006">2005/2006</option>
+                                                
+                                                <option value="2004/2005">2004/2005</option>
+                                                
+                                                <option value="2003/2004">2003/2004</option>
+                                                
+                                            </select>    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>SEMESTER:</td>
+                                        <td>
+                                            <div id="semesters">
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+
+
+                                    <tr>
+                                        <td colspan="3" align="center">      <input name="Submit" type="submit" class="button" value="Generate Payment Reference">    </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" align="center">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" align="center" valign="top">
+
+                                                            </td>
+                                    </tr>
+                                </table>
+
+                            </form>
+
+
+                        </div>
+
+                    </div>
+                    
+
+<div class="latestnews">
+    
+</div>
+
+
+
+
+                </div>	
+                <div id="cleardiv"></div>
+            </div>
+            <div id="cleardivsmall"></div>
+            <div id="bottomdiv">
+
+© 2016 Benue State University
+</div>
+        </canvas>
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/mainjs.js"></script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+body {
+    margin-top:0px;
+    background-color:#D1F3C8; 
+    color:#202127;
+    font-family:verdana, 'trebuchet ms', sans-serif; font-size:8pt; font-weight:normal;
+}
+
+body a { 
+    text-decoration: none;
+    color:#193BFF;
+}
+.tableCellUnderline{
+    border-collapse:collapse;
+    border-bottom:1px #000000 groove;
+    height:25px;
+}
+
+.smallTableCellUnderline{
+    border-collapse:collapse;
+    font-size:11px;
+    border-bottom:1px #000000 groove;
+    height:15px;
+}
+.error {
+    border:1px dotted #990000; color: #990000; font:14px "Trebuchet MS"; padding-left:17px; background:url(https://portal.bsum.edu.ng/css/images/err.jpg) left center no-repeat #FFBEAE;
+}
+.head1{
+    background-color:#ADB9FF;
+    font-size:16px;
+    font-family:"Times New Roman", Times, serif;
+    font-weight:bold;
+    padding-left:10px;
+}
+
+.head2{
+    background-color:#2E2C8F;
+    color:#FFFFFF;
+    font-size:12px;
+    font-family:"Times New Roman", Times, serif;
+    padding-left:10px;
+}
+.green{
+    color:#009F00;
+}
+.yellow{
+    color:#ECEC00;
+}
+.portalheadTitle{
+    font:"Times New Roman"; color:#eeeeee; font-weight:bold; font-size:24px;
+}
+.head3{
+    background-image:url(../images/head3bg.jpg);
+    color:#FFBC14;
+    font-size:14px;
+    height:30px;
+    font-weight:bold;
+    font-family:"Times New Roman", Times, serif;
+    padding-left:5px;
+}
+.appHome{
+    color:#FF0000;
+}
+.appLeftNav{
+    background-color:#AEB8FE;
+    font-weight:bold;
+    font-size:14px;
+    color:#111111;
+    font-family:"Times New Roman";
+    border-right:1px #6078FF;
+    padding-left:5px;
+}
+.bullet1{
+    padding-left:22px;
+    background:url(../images/bullet1.jpg) left top no-repeat;
+    font:Verdana, Arial, Helvetica, sans-serif; font-size:12px; line-height:20px;
+}
+.red{
+    color:#AE0602;
+}
+.head4{
+    color:#193BFF;
+    background-image:url(../images/head4bg.jpg);
+    font-size:14px;
+    height:30px;
+    font-weight:bold;
+    font-family:"Times New Roman", Times, serif;
+    padding-left:5px;
+}
+.link3, link3 a, link3 a:active, link3 a:visited{
+    color:#FFBC14;
+    font-weight:bold;
+    padding-left:5px;
+}
+
+.link3 a:hover{
+    color:#193BFF;
+    font-weight:bold;
+    padding-left:5px;
+}
+/*
+.link4, link4 a, link4 a:active, link4 a:visited{
+    color:#193BFF;
+    font-weight:bold;
+    padding-left:5px;
+}
+*/
+.link1 a:link {
+  color: blue;
+  font-weight:bold;
+}
+
+/* visited link */
+.link1 a:visited {
+  color: blue;
+  font-weight:bold;
+}
+
+/* mouse over link */
+.link1 a:hover {
+  color: red;
+  font-weight:bold;
+}
+
+/*
+.link a:hover{
+    color:#020063;
+    font-weight:bold;
+    padding-left:5px;
+}
+*/
+
+.content2{
+    background-color:#ADB9FF;
+}
+
+.Imagewithborder{
+    border:5px #FFDA0A;
+
+}
+
+.bgModerateBlue{
+    background-color:#6078FF;
+}
+
+.mainCell{
+    background-color:#FFFFFF;
+    padding:15px;
+}
+
+.loginForm {
+    width: 240px;
+    padding: 20px;
+    border: 1px solid #270644;
+
+    /*** Adding in CSS3 ***/
+
+    /*** Rounded Corners ***/
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+
+    /*** Background Gradient - 2 declarations one for Firefox and one for Webkit ***/
+    /* for opera*/
+    background: #020063;
+    /*--*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2E2C8F', endColorstr='#2E2C8F'); 
+    background:  -moz-linear-gradient(19% 75% 90deg,#2E2C8F, #2E2C8F);
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#2E2C8F), to(#2E2C8F));
+
+    /*** Shadow behind the box ***/
+    -moz-box-shadow:0px -5px 300px #270644;
+    -webkit-box-shadow:0px -5px 300px #270644;
+}
+
+.FormCss {
+    width: 100%;
+
+    border: 1px solid #270644;
+
+    /*** Adding in CSS3 ***/
+
+    /*** Rounded Corners ***/
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+}
+.FormLabel2{
+    font-family:"Times New Roman", Times, serif;
+    padding-left:3px;
+    height:20px;
+    text-transform:uppercase;
+    color:#270644;
+    font-weight:bold;
+}
+.FormInput2 {
+    color:#111111;
+    font-family:verdana, tahoma, arial;
+    font-size:8pt;
+    font-weight:normal;
+    border:solid #270644 1px;
+    text-decoration:none;
+
+}
+.loginInput {
+    width: 200px;
+    background: #DCDAFF;
+    padding: 6px;
+    margin-bottom: 10px;
+    border-top: 1px solid #ad64e0;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+
+    /*** Adding CSS3 ***/
+
+    /*** Transition Selectors - What properties to animate and how long ***/
+    -webkit-transition-property: -webkit-box-shadow, background;
+    -webkit-transition-duration: 0.25s;
+
+    /*** Adding a small shadow ***/
+    -moz-box-shadow: 0px 0px 2px #000;
+    -webkit-box-shadow: 0px 0px 2px #000;
+}
+
+.loginInputSubmit {
+    width: 100px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: #000 1px 1px;
+    border-top: 1px solid #fff;
+    margin-top: 10px;
+
+    /*** Adding CSS3 Gradients ***/
+    background: #2E2C8F;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#963AD6), to(#781bb9));
+    background:  -moz-linear-gradient(19% 75% 90deg,#781bb9, #963AD6);
+}
+input:hover {
+    -webkit-box-shadow: 0px 0px 4px #000;
+    background: #9d39e1;
+}
+
+.formLabel{
+    color:#FFFFFF;
+    text-transform: uppercase;
+}
+
+.pretty-table-td{ border: 1px dotted #666; }
+
+.tooltip {
+    border-bottom: 1px dotted #000000; color: #000000; outline: none;
+    cursor: help; text-decoration: none;
+    position: relative;
+}
+.tooltip span {
+    margin-left: -999em;
+    position: absolute;
+}
+.tooltip:hover span {
+    border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Tahoma, Geneva, sans-serif;
+    position: absolute; left: 1em; top: 2em; z-index: 99;
+    margin-left: 0; width: 250px;
+}
+.tooltip:hover img {
+    border: 0; margin: -10px 0 0 -55px;
+    float: left; position: absolute;
+}
+.tooltip:hover em {
+    font-family: Candara, Tahoma, Geneva, sans-serif; font-size: 1.2em; font-weight: bold;
+    display: block; padding: 0.2em 0 0.6em 0;
+}
+.classic { padding: 0.8em 1em; }
+.custom { padding: 0.5em 0.8em 0.8em 2em; }
+* html a:hover { background: transparent; }
+.classic {background: #FFFFAA; border: 1px solid #FFAD33; }
+.info { background: #9FDAEE; border: 1px solid #2BB0D7;	}
+
+.newsTitle{ 
+    color: #0033FF; 
+    font: 12px arial, sans-serif; 
+    font-weight: bold; }
+#NewsDiv{ 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height:280px 
+}
+.errorMessage{
+    border-radius: 5px 5px;
+    -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+    font-family: Calibri, Tahoma, Geneva, sans-serif;
+    position: absolute;
+    left: 187px;
+    top: 37px;
+    z-index: 99;
+    margin-left: 0;
+    width: 600px;
+    background: #FFFF99;
+    border: 1px solid #2BB0D7;
+    font-size: 24px;
+    color: #CC0000;
+    height: 107px;
+}
+.orderedList{
+    margin-bottom: 20px;
+    font-family:"Times New Roman", Times, serif;
+    font-size:12px
+}
+.univname{
+    font-family:'Times New Roman', Times, serif; 
+    font-size:22px;
+    font-weight:bold
+}
+.offcRegistrar{
+    font-family: "Times New Roman", Times, serif;
+    font-style:italic;
+    font-weight:bold;
+    font-size:18px
+}

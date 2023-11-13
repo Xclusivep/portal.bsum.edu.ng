@@ -1,0 +1,266 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+
+
+
+
+
+ 
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Benue State University, Makurdi</title>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">    
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/portal.css">
+        <link rel="stylesheet" type="text/css" href="css/menu.css">        
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript">
+            jQuery.noConflict();
+            // Code that uses other library's $ can follow here.
+        </script>
+        <script type="text/javascript" src="js/time_script.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+                $("#listTable tr:nth-child(even)").addClass("striped");
+            });
+        </script>
+        <script>
+            function printDiv()
+            {
+                var divToPrint = document.getElementById('payrefTable');
+                newWin = window.open("");
+                newWin.document.write(divToPrint.outerHTML);
+                newWin.print();
+                newWin.close();
+            }
+
+
+
+            function switchContent(obj) {
+                var el = document.getElementById(obj);
+                if (el.style.display !== "none") {
+                    el.style.display = 'none';
+                }
+                else {
+                    el.style.display = '';
+                }
+            }
+        </script>
+
+        <script>
+            var req;
+            var isIE;
+            var prog;
+            var paycat;
+            var semesters;
+            var loadpaycat;
+
+            function init() {
+
+
+            }
+            function initRequest() {
+                if (window.XMLHttpRequest) {
+                    if (navigator.userAgent.indexOf('MSIE') != -1) {
+                        isIE = true;
+                    }
+                    return new XMLHttpRequest();
+                } else if (window.ActiveXObject) {
+                    isIE = true;
+                    return new ActiveXObject("Microsoft.XMLHTTP");
+                }
+            }
+            function moveToPayOption(payref) {
+                var ref = escape(payref);
+                window.open('paymentChannels.jsp?payref=' + ref);
+            }
+            function printFormatText(txt)
+            {
+                if (txt !== "") {
+                    var url = "Ajaxservlet?action=printPayRef&id=" + escape(txt);
+                    req = initRequest();
+                    req.open("GET", url, true);
+                    req.onreadystatechange = printPayref;
+                    req.send(null);
+
+                }
+            }
+            function printPayref() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        var txt1 = req.responseText;
+                        newWin = window.open("");
+                        newWin.document.write(txt1);
+                        newWin.print();
+                        newWin.close();
+                    }
+                }
+            }
+
+            function loadPaymentCategory() {
+                var sel = document.getElementById("prog");
+                prog = sel.options[sel.selectedIndex].value;
+
+                loadpaycat = document.getElementById("loadpaycat");
+                if (prog !== "") {
+                    var url = "Ajaxservlet?action=loadpaycat&id=" + escape(prog);
+                    req = initRequest();
+                    req.open("GET", url, true);
+                    req.onreadystatechange = callLoadpaycat;
+                    req.send(null);
+                }
+            }
+            function loadSemesters() {
+                //init();
+                var sel2 = document.getElementById("paycat");
+                paycat = sel2.options[sel2.selectedIndex].value;
+
+                semesters = document.getElementById("semesters");
+                if (paycat !== "") {
+                    var url = "Ajaxservlet?action=loadsemesters&id=" + escape(paycat);
+                    req = initRequest();
+                    req.open("GET", url, true);
+                    req.onreadystatechange = callLoadsemesters;
+                    req.send(null);
+                }
+            }
+
+            function callLoadpaycat() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        var txt1 = req.responseText;
+                        loadPaycatNow(txt1);
+                    }
+                }
+            }
+
+            function callLoadsemesters() {
+                if (req.readyState == 4) {
+                    if (req.status == 200) {
+                        var txt1 = req.responseText;
+                        //var txt2=req.responseText.split("***")[1];
+                        //appendName(req.responseText);
+                        loadSemesterNow(txt1);
+                    }
+                }
+            }
+
+
+
+            function loadPaycatNow(txt1) {
+                if (isIE) {
+                    loadpaycat.style.display = 'block';
+                } else {
+                    loadpaycat.style.display = 'div';
+                }
+                document.getElementById("loadpaycat").innerHTML = txt1;
+            }
+
+            function loadSemesterNow(txt1) {
+                if (isIE) {
+                    semesters.style.display = 'block';
+                } else {
+                    semesters.style.display = 'div';
+                }
+                document.getElementById("semesters").innerHTML = txt1;
+            }
+        </script>
+    </head>
+
+    
+
+    <body>
+
+        <div id="topdiv">
+            
+
+<div id="barner">
+    <div id="logo"></div>
+    <div id="barnertxt">
+        <div id="search"></div>
+        <div id="barnername"><barnername>Benue State University, Makurdi</barnername><br/><br/>
+            <barnersub>University Portal</barnersub>
+        </div>
+        <div id="barnerempty"></div>
+    </div>
+   
+</div>
+            
+            
+
+<nav id="menu-wrap"><div id="menu-trigger">Menu</div>    
+    <ul id="menu">
+        <li><a href="https://www.bsum.edu.ng">Back to website</a></li>
+        <li><a href="EPayments.html">Verify Payment Reference</a></li>
+        <li><a href="EPaymentRef.html">View Payment References</a></li>
+        <li><a href="HangingPayments.html" >Hanging Payments?</a></li>
+        <li><a href="EPayment.html">Pay Online</a></li>
+        <li><a href="FAQs.html">FAQs</a></li>
+        <li><a href="HangingPayments.html">&nbsp;</a></li>
+    </ul>
+</nav>
+
+        </div>
+        <div id="canvas">
+            <div id="content">                
+                <div id="cleardivsmall"></div>  
+                <div class="contentTitle">E-Payment - Resolve Hanging Payments</div>
+                <div id="cleardivsmall"></div> 
+                <div class="contentwrapper">
+                    <div class="mainsection">
+                        <div class="mainsectiondoby">
+                            <form action="HangingPayments.html" method="post" name="payment" class="form_css">
+                                Payment Reference : 
+                                <input name="paymentref" type="text" id="paymentref" required/>
+                                <input name="submit" type="submit" class="button" value="Resolve">
+                            </form>
+
+
+                        </div>
+                        <div id="cleardivsmall"></div> 
+                        
+                        <error>Payment Reference null not found!</error>
+                            
+
+
+                    </div>
+                    
+
+<div class="latestnews">
+    
+</div>
+
+
+
+
+                </div>	
+                <div id="cleardiv"></div>
+            </div>
+            <div id="cleardivsmall"></div>
+            <div id="bottomdiv">
+
+© 2016 Benue State University
+</div>
+        </canvas>
+
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/mainjs.js"></script>
+</body>
+</html>
